@@ -46,4 +46,5 @@ class EmailVerificationController extends Controller
 		$user->notify(new EmailVerificationNotification());
 		return view('pages.success', ['msg' => '邮件发送成功']);
 	}
+	
 }
