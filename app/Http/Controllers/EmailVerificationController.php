@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -46,5 +45,5 @@ class EmailVerificationController extends Controller
 		$user->notify(new EmailVerificationNotification());
 		return view('pages.success', ['msg' => '邮件发送成功']);
 	}
-	
+
 }
