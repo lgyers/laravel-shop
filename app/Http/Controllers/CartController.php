@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\AddCartRequest;
 use App\Models\CartItem;
 
@@ -28,5 +29,12 @@ class CartController extends Controller
         }
 
         return [];
+    }
+
+    public function index(Request $request)
+    {
+        $cartItems = $request->user()->cartItems()->with(['productSku.product'])->get();
+
+        return view('cart.index', ['cartItems' => $cartItems]);
     }
 }
