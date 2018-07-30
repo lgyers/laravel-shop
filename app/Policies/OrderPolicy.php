@@ -17,7 +17,6 @@ class OrderPolicy
      */
     public function __construct(User $user, Order $order)
     {
-        dd($user->id);
         return $order->user_id == $user->id;
     }
 }
